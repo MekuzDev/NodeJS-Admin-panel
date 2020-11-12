@@ -1,0 +1,34 @@
+<h1>ALL POSTS</h1>
+
+<table class="table table-border table-responsive">
+  <thead>
+      <tr>
+          <th>Id</th>
+          <th>Avatar</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Allow commment</th>
+           <th>View</th>
+           <th>Edit</th>
+           <th>Delete</th>
+      </tr>
+  </thead>  
+  <tbody>
+      {{#each posts}}
+      <tr>
+          <td>{{id}}</td>
+          <td><img src="/uploads/{{file}}" alt="" class="rounded" width="50px" srcset=""></td>
+          <td>{{title}}</td>
+          <td>{{status}}</td>
+          <td>{{allowComments}}</td>
+          <td><button class="btn btn-success">View post</button></td>
+          <td><a href="/admin/posts/edit/{{id}}" class="btn btn-info">Edit post</a></td>
+          <td>
+              <form action="/admin/posts/{{id}}?_method=DELETE" method="post">
+              <button class="btn btn-danger">Delete post</button>
+            </form>
+            </td>
+      </tr>
+      {{/each}}
+  </tbody>
+</table>
